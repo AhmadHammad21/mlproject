@@ -1,0 +1,58 @@
+
+
+
+Video 1
+1- Setup the github code
+
+make new environment
+setup.py
+requirements.txt
+
+
+2- Now Src folder and the package is built
+
+
+open project in vs code
+code . in anaconda
+
+
+open terminal in vscode and type this, it will make an enviroment inside the projcet
+
+conda create -p venv python==3.8 -y 
+
+then activate the enivroment
+
+
+
+connect to github
+
+
+Create .gitignore file using github
+
+
+setup.py is used for building packages, in our case we will build our machine learning
+project as a package
+
+
+
+make src folder and __init__.py in it
+
+
+Add -e . in requiremtns so it will trigger setup.py
+
+
+
+then install by using pip install -r requirements.txt
+===========================================================================
+Video 2
+Project Strucure, Logging and Exception Handling
+
+
+add components directory into src
+add pipeline directory into src
+
+add exception.py
+logger.py
+utils.py
+===========================================================================
+Video 3
