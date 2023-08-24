@@ -58,4 +58,9 @@ utils.py
 Video 3
 
 
-Problem Statement
+Problem Statement, EDA model training
+===========================================================================
+Video 4 
+Data Ingestion
+
+How to handle data from local source and make a train and test split
