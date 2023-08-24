@@ -6,12 +6,14 @@ import pandas as pd
 from sklearn.model_selection import train_test_split
 from dataclasses import dataclass
 
+from src.components.data_transformation import DataTransformationConfig, DataTransformation
+
 
 @dataclass
 class DataIngestionConfig:
-    train_path_path: str = os.path.join('artifacts', 'train.csv')
-    test_path_path: str = os.path.join('artifacts', 'test.csv')
-    raw_path_path: str = os.path.join('artifacts', 'data.csv')
+    train_data_path: str = os.path.join('artifacts', 'train.csv')
+    test_data_path: str = os.path.join('artifacts', 'test.csv')
+    raw_data_path: str = os.path.join('artifacts', 'data.csv')
 
 
 class DataIngestion:
@@ -27,24 +29,24 @@ class DataIngestion:
             logging.info("Read the dataset as a dataframe")
 
             # getting just the direftory name and creating a directory
-            os.makedirs(os.path.dirname(self.ingestion_config.train_path_path), exist_ok=True)
+            os.makedirs(os.path.dirname(self.ingestion_config.train_data_path), exist_ok=True)
 
-            df.to_csv(self.ingestion_config.raw_path_path, index=False, header=True)
+            df.to_csv(self.ingestion_config.raw_data_path, index=False, header=True)
             logging.info("Raw data has been saved")
 
             logging.info("Train Test split initiated")
             train_set, test_set = train_test_split(df, test_size=0.2, random_state=42)
 
-            train_set.to_csv(self.ingestion_config.train_path_path, index=False, header=True)
+            train_set.to_csv(self.ingestion_config.train_data_path, index=False, header=True)
 
-            test_set.to_csv(self.ingestion_config.test_path_path, index=False, header=True)
+            test_set.to_csv(self.ingestion_config.test_data_path, index=False, header=True)
 
             logging.info("Train and Test data have been saved")
             logging.info("Ingestion of the data is completed")
 
             return(
-                self.ingestion_config.train_path_path,
-                self.ingestion_config.test_path_path, 
+                self.ingestion_config.train_data_path,
+                self.ingestion_config.test_data_path, 
             )
         except Exception as e:
             raise CustomException(e, sys)
@@ -52,4 +54,7 @@ class DataIngestion:
 
 if __name__ == "__main__":
     data_ingestion_object = DataIngestion()
-    data_ingestion_object.initiate_data_ingestion()
+    train_data_path, test_data_path = data_ingestion_object.initiate_data_ingestion()
+
+    data_transformation_object = DataTransformation()
+    data_transformation_object.initiate_data_transformation(train_data_path, test_data_path)
