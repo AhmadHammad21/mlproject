@@ -22,6 +22,13 @@ def save_object(file_path, obj):
         raise(e, sys)
 
 
+def load_object(file_path):
+    with open(file_path, 'rb') as f:
+        loaded_object = pickle.load(f)
+
+    return loaded_object
+
+
 def evaluate_model(X_train, y_train, X_test, y_test, models, params):
     """
     this function takes X train and test and models and returns a report
