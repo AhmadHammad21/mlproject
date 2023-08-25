@@ -72,3 +72,6 @@ Data Transformation
 ===========================================================================
 Video 6
 Model Training and Model Evaluation
+===========================================================================
+Video 7
+Hyperparameter Tuning
