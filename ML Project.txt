@@ -69,3 +69,6 @@ artifact folder
 Viedo 5
 Data Transformation
 
+===========================================================================
+Video 6
+Model Training and Model Evaluation
