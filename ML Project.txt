@@ -75,3 +75,9 @@ Model Training and Model Evaluation
 ===========================================================================
 Video 7
 Hyperparameter Tuning
+
+
+
+===========================================================================
+For azure deployment, just watch the video again
+
