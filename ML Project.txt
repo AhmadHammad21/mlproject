@@ -77,7 +77,11 @@ Video 7
 Hyperparameter Tuning
 
 
-
 ===========================================================================
 For azure deployment, just watch the video again
+
+===========================================================================
+AWS CI/CD pipeline
+
+Must make dockerfile and github/workflow.yml file
 
